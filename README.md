@@ -18,6 +18,7 @@ run ./pyhton_venv_install.sh
 virtualenv --python C:\Path\To\Python\python.exe venv
 .\venv\Scripts\activate
 - pip3 install -r requirements.txt
+
 3.create .env file with following
 - API_KEY=key
 - ENC_KEY=enc_key

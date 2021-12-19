@@ -43,13 +43,16 @@ def backup(zipd_folder_name, path_to_obsidian, url, params):
 
 def pull():
     with requests.get(url2, params_for_get, stream=True) as r:
+        
         r.raise_for_status()
+        print(r)
         with open(zipd_folder_name_env, 'wb') as f:
             for chunk in r.iter_content(chunk_size=8192): 
+                print(chunk)
                 # If you have chunk encoded response uncomment if
                 # and set chunk_size parameter to None.
-                #if chunk: 
-                f.write(chunk)
+                if chunk: 
+                    f.write(chunk)
     return zipd_folder_name_env
         
 #####################
@@ -58,7 +61,7 @@ def backup_btn():
 
 def unzip_btn():
     pull()
-    unzip_file(zipd_folder_name_env)
+    # unzip_file(zipd_folder_name_env)
 
 parent = tk.Tk()
 frame = tk.Frame(parent)
